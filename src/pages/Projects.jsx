@@ -1,12 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
-
-const GithubIcon = (props) => (
-  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61 3.4 3.4 0 0 1 .64-3.68c.39-.48.48-1.45.13-2.20-.5-.97-1.79-.95-2.22-.55-.37.35-.59.94-.59.94a6.00 6.00 0 0 0-7.66.27c-.29-1.05-1.24-1.50-1.24-1.50-.67-.52-1.73.7-1.73.7-.35.45-.19 1.38.11 2.00A3.37 3.37 0 0 0 9 18.13V22"/>
-  </svg>
-);
+import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
@@ -265,7 +259,7 @@ export default function Projects() {
           style={{ marginTop: 56, textAlign: 'center' }}
         >
           <a
-            href="https://github.com/harshkasaudhan"
+            href="https://github.com/HarshKasaudhan29"
             target="_blank"
             rel="noreferrer"
             style={{
