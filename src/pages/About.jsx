@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Download, MapPin, Coffee, Code2, Gamepad2 } from 'lucide-react';
-import profileImg from '../assets/Harsh1.jpg';
+import profileImg from '../assessts/profile.jpg';
 
 const stats = [
   { value: 'B.Tech', label: 'IT Student 2027' },
