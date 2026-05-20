@@ -9,7 +9,7 @@ const projects = [
     description: 'A dynamic movie discovery web platform that integrates the TMDB API for real-time data fetching. It solves the hassle of finding trending films by providing interactive search, user ratings, and smooth responsive component rendering.',
     tech: ['React.js', 'Tailwind CSS', 'TMDB API', 'JavaScript'],
     live: null,
-    repo: 'https://github.com/harshkasaudhan/CineStream',
+    repo: 'https://github.com/HarshKasaudhan29/CineStream',
     color: '#c8f542',
     featured: true,
   },
@@ -19,9 +19,19 @@ const projects = [
     description: 'An advanced synthetic media detector designed to identify and flag AI-generated deepfake content. It provides an isolated, reliable deployment setup to process media analysis requests seamlessly.',
     tech: ['Python', 'Docker', 'React.js', 'Tailwind CSS'],
     live: null,
-    repo: 'https://github.com/harshkasaudhan/DeepShield',
+    repo: 'https://github.com/HarshKasaudhan29/DeepShield',
     color: '#42d4f4',
     featured: true,
+  },
+  {
+    number: '03',
+    title: 'Amazon Clone',
+    description: 'A pixel-perfect front-end clone of Amazon built with pure HTML and CSS. Recreates the homepage layout, navbar, product sections, and footer with fully responsive design.',
+    tech: ['HTML', 'CSS'],
+    live: null,
+    repo: 'https://github.com/HarshKasaudhan29/amazon-clone-html-css',
+    color: '#f5a142',
+    featured: false,
   },
 ];
 
@@ -169,7 +179,7 @@ function ProjectCard({ project, index }) {
             e.currentTarget.style.borderColor = 'var(--border)';
           }}
         >
-          <GithubIcon style={{ fontSize: '14px' }} /> Code
+          <Github size={14} /> Code
         </a>
       </div>
 

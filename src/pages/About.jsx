@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Download, MapPin, Coffee, Code2, Gamepad2 } from 'lucide-react';
-import profileImg from '../assessts/profile.jpg';
+import profileImg from '../assets/Harsh1.jpg';
 
 const stats = [
-  { value: '2+', label: 'Years Experience' },
-  { value: '15+', label: 'Projects Built' },
+  { value: 'B.Tech', label: 'IT Student 2027' },
+  { value: '4+', label: 'Projects Built' },
   { value: '8+', label: 'Technologies' },
   { value: '100%', label: 'Passion' },
 ];
@@ -34,7 +34,6 @@ export default function About() {
         >
           {/* Left: Image + Stats */}
           <div>
-            {/* Profile image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -55,6 +54,8 @@ export default function About() {
                 background: 'linear-gradient(135deg, var(--accent) 0%, transparent 60%)',
                 opacity: 0.4,
               }} />
+
+              {/* Image container */}
               <div style={{
                 borderRadius: 18,
                 overflow: 'hidden',
@@ -73,7 +74,6 @@ export default function About() {
                   }}
                   onError={e => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.style.background = 'var(--surface)';
                     e.target.parentElement.innerHTML = `
                       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:80px;font-family:var(--font-display)">H</div>
                     `;
@@ -98,7 +98,7 @@ export default function About() {
                 color: 'var(--text-secondary)',
               }}>
                 <MapPin size={13} style={{ color: 'var(--accent)' }} />
-                Dadri, Uttar Pradesh, India
+                Greater Noida, Uttar Pradesh, India
               </div>
             </motion.div>
 
@@ -126,7 +126,7 @@ export default function About() {
                 >
                   <div style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 28,
+                    fontSize: 24,
                     color: 'var(--accent)',
                     marginBottom: 4,
                   }}>{stat.value}</div>
@@ -175,6 +175,8 @@ export default function About() {
 
             {[
               "Hey! I'm Harsh Kasaudhan, a passionate Frontend & Web Developer currently pursuing my B.Tech in Information Technology (Batch of 2027). My journey into technology is driven by a deep curiosity to transform creative ideas into elegant, efficient, and highly responsive user interfaces. I love building smooth web experiences that look great and feel seamless to use.",
+              "I'm a fresher actively looking for opportunities where I can contribute, grow, and keep leveling up my skills. I enjoy working with React.js, Tailwind CSS, and modern JavaScript to build projects that solve real problems.",
+              "When I'm not coding, you'll find me exploring new tech, contributing to open source, gaming, or sipping coffee while thinking about what to build next.",
             ].map((para, i) => (
               <motion.p
                 key={i}

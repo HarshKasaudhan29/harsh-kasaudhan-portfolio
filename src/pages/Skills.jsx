@@ -6,33 +6,33 @@ const skillCategories = [
     title: 'Frontend',
     color: '#c8f542',
     skills: [
-      { name: 'React.js', level: 90 },
-      { name: 'JavaScript (ES6+)', level: 88 },
-      { name: 'HTML & CSS', level: 95 },
-      { name: 'Tailwind CSS', level: 85 },
-      { name: 'Framer Motion', level: 75 },
+      { name: 'HTML & CSS', level: 85 },
+      { name: 'JavaScript (ES6+)', level: 70 },
+      { name: 'React.js', level: 72 },
+      { name: 'Tailwind CSS', level: 75 },
+      { name: 'Framer Motion', level: 55 },
     ],
   },
   {
     title: 'Backend',
     color: '#42d4f4',
     skills: [
-      { name: 'Node.js', level: 82 },
-      { name: 'Express.js', level: 80 },
-      { name: 'REST APIs', level: 85 },
-      { name: 'MongoDB', level: 78 },
-      { name: 'PostgreSQL', level: 65 },
+      { name: 'Node.js', level: 60 },
+      { name: 'Express.js', level: 58 },
+      { name: 'REST APIs', level: 65 },
+      { name: 'MongoDB', level: 62 },
+      { name: 'Python', level: 60 },
     ],
   },
   {
     title: 'Tools & DevOps',
     color: '#f542a4',
     skills: [
-      { name: 'Git & GitHub', level: 90 },
-      { name: 'Vite / Webpack', level: 78 },
-      { name: 'VS Code', level: 95 },
-      { name: 'Postman', level: 85 },
-      { name: 'Vercel / Netlify', level: 80 },
+      { name: 'Git & GitHub', level: 78 },
+      { name: 'VS Code', level: 90 },
+      { name: 'Vite', level: 65 },
+      { name: 'Docker', level: 50 },
+      { name: 'Vercel / Netlify', level: 70 },
     ],
   },
 ];
@@ -49,7 +49,8 @@ const techIcons = [
   { name: 'Express', emoji: '🚂' },
   { name: 'Tailwind', emoji: '🎨' },
   { name: 'Vite', emoji: '⚡' },
-  { name: 'PostgreSQL', emoji: '🐘' },
+  { name: 'Python', emoji: '🐍' },
+  { name: 'Docker', emoji: '🐳' },
 ];
 
 function SkillBar({ name, level, color, index, inView }) {

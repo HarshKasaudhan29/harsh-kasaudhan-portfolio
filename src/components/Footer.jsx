@@ -17,7 +17,7 @@ const LinkedinIcon = (props) => (
 
 const socials = [
   { icon: <GithubIcon style={{ fontSize: '17px' }} />, href: 'https://github.com/HarshKasaudhan29', label: 'GitHub' },
-  { icon: <LinkedinIcon style={{ fontSize: '17px' }} />, href: 'https://www.linkedin.com/in/harsh-kasaudhan-18423', label: 'LinkedIn' },
+  { icon: <LinkedinIcon style={{ fontSize: '17px' }} />, href: 'https://www.linkedin.com/in/harsh-kasaudhan', label: 'LinkedIn' },
   { icon: <Mail size={17} />, href: 'mailto:harsh.kasaudhan105@gmail.com', label: 'Email' },
 ];
 

@@ -1,27 +1,14 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-
-const GithubIcon = (props) => (
-  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61 3.4 3.4 0 0 1 .64-3.68c.39-.48.48-1.45.13-2.20-.5-.97-1.79-.95-2.22-.55-.37.35-.59.94-.59.94a6.00 6.00 0 0 0-7.66.27c-.29-1.05-1.24-1.50-1.24-1.50-.67-.52-1.73.7-1.73.7-.35.45-.19 1.38.11 2.00A3.37 3.37 0 0 0 9 18.13V22"/>
-  </svg>
-);
-
-const LinkedinIcon = (props) => (
-  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
     icon: <Mail size={18} />,
     label: 'Email',
-    value: 'harsh.kasaudhan105@gmail.com',
-    href: 'mailto:harsh.kasaudhan105@gmail.com',
+    value: 'harshkasaudhan105@gmail.com',
+    href: 'mailto:harshkasaudhan105@gmail.com',
   },
   {
     icon: <Phone size={18} />,
@@ -38,8 +25,8 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: <GithubIcon style={{ fontSize: '18px' }} />, label: 'GitHub', href: 'https://github.com/HarshKasaudhan29' },
-  { icon: <LinkedinIcon style={{ fontSize: '18px' }} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/harsh-kasaudhan-18423' },
+  { icon: <Github size={18} />, label: 'GitHub', href: 'https://github.com/HarshKasaudhan29' },
+  { icon: <Linkedin size={18} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/harsh-kasaudhan' },
 ];
 
 export default function Contact() {
@@ -47,7 +34,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -70,10 +57,24 @@ export default function Contact() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
 
     setStatus('sending');
-    // Simulate async send (replace with EmailJS / Formspree / your API)
-    await new Promise((r) => setTimeout(r, 1800));
-    setStatus('sent');
-    setForm({ name: '', email: '', subject: '', message: '' });
+
+    try {
+      await emailjs.send(
+        'service_vmddh3s',
+        'template_igviej1',
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        'igRtXlFoMHj94vh9m'
+      );
+      setStatus('sent');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   const inputStyle = (field) => ({
@@ -379,6 +380,13 @@ export default function Contact() {
                     <><Send size={18} /> Send Message</>
                   )}
                 </button>
+
+                {/* Error message */}
+                {status === 'error' && (
+                  <p style={{ color: '#ff6b6b', fontSize: 14, textAlign: 'center' }}>
+                    Something went wrong! Please try again or email directly at harshkasaudhan105@gmail.com
+                  </p>
+                )}
               </form>
             )}
           </motion.div>
