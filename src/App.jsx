@@ -26,15 +26,21 @@ export default function App() {
       root.style.setProperty('--text-primary', '#f0ede8');
       root.style.setProperty('--text-secondary', '#888');
       root.style.setProperty('--text-muted', '#555');
+      root.style.setProperty('--accent', '#c8f542');
+      root.style.setProperty('--accent-dim', 'rgba(200, 245, 66, 0.12)');
+      root.style.setProperty('--accent-glow', 'rgba(200, 245, 66, 0.25)');
     } else {
-      root.style.setProperty('--bg', '#f5f5f0');
-      root.style.setProperty('--bg-secondary', '#ebebeb');
-      root.style.setProperty('--surface', '#e8e8e3');
-      root.style.setProperty('--surface-hover', '#dcdcd7');
-      root.style.setProperty('--border', 'rgba(0, 0, 0, 0.1)');
+      root.style.setProperty('--bg', '#f0f0f0');
+      root.style.setProperty('--bg-secondary', '#e4e4e4');
+      root.style.setProperty('--surface', '#ffffff');
+      root.style.setProperty('--surface-hover', '#f5f5f5');
+      root.style.setProperty('--border', 'rgba(0, 0, 0, 0.12)');
       root.style.setProperty('--text-primary', '#0a0a0a');
-      root.style.setProperty('--text-secondary', '#555');
-      root.style.setProperty('--text-muted', '#999');
+      root.style.setProperty('--text-secondary', '#333333');
+      root.style.setProperty('--text-muted', '#666666');
+      root.style.setProperty('--accent', '#5a9e00');
+      root.style.setProperty('--accent-dim', 'rgba(90, 158, 0, 0.12)');
+      root.style.setProperty('--accent-glow', 'rgba(90, 158, 0, 0.25)');
     }
   }, [darkMode]);
 
@@ -124,16 +130,16 @@ export default function App() {
           alignItems: 'center',
           justifyContent: 'center',
           fontSize: 22,
-          boxShadow: '0 4px 24px rgba(200,245,66,0.3)',
+          boxShadow: '0 4px 24px var(--accent-glow)',
           transition: 'transform 0.2s ease, box-shadow 0.2s ease',
         }}
         onMouseEnter={e => {
           e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 8px 32px rgba(200,245,66,0.5)';
+          e.currentTarget.style.boxShadow = '0 8px 32px var(--accent-glow)';
         }}
         onMouseLeave={e => {
           e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 24px rgba(200,245,66,0.3)';
+          e.currentTarget.style.boxShadow = '0 4px 24px var(--accent-glow)';
         }}
         title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       >
