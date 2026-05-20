@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Download, MapPin, Coffee, Code2, Gamepad2 } from 'lucide-react';
-import profileImg from '../assessts/profile.jpg';
+import profileImg from '../assets/Harsh1.jpg';
 
 const stats = [
   { value: 'B.Tech', label: 'IT Student 2027' },
@@ -19,6 +19,7 @@ const interests = [
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const [imageFailed, setImageFailed] = useState(false);
 
   return (
     <section id="about" style={{ padding: 'clamp(80px, 12vw, 140px) clamp(20px, 6vw, 80px)' }}>
@@ -63,22 +64,32 @@ export default function About() {
                 aspectRatio: '4/5',
                 position: 'relative',
               }}>
-                <img
-                  src={profileImg}
-                  alt="Harsh Kasaudhan"
-                  style={{
+                {imageFailed ? (
+                  <div style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'top',
-                  }}
-                  onError={e => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `
-                      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:80px;font-family:var(--font-display)">H</div>
-                    `;
-                  }}
-                />
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#555',
+                    fontSize: 80,
+                    fontFamily: 'var(--font-display)',
+                  }}>
+                    H
+                  </div>
+                ) : (
+                  <img
+                    src={profileImg}
+                    alt="Harsh Kasaudhan"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'top',
+                    }}
+                    onError={() => setImageFailed(true)}
+                  />
+                )}
               </div>
 
               {/* Location badge */}

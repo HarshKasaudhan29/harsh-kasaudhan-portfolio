@@ -251,7 +251,6 @@ export default function Hero() {
             {[
               { icon: <GithubIcon style={{ fontSize: '18px' }} />, href: 'https://github.com/HarshKasaudhan29', label: 'GitHub' },
               { icon: <LinkedinIcon style={{ fontSize: '18px' }} />, href: 'https://www.linkedin.com/in/harsh-kasaudhan-18423', label: 'LinkedIn' },
-              { icon: <TwitterIcon style={{ fontSize: '18px' }} />, href: 'https://twitter.com/', label: 'Twitter' },
             ].map(({ icon, href, label }) => (
               <a
                 key={label}
