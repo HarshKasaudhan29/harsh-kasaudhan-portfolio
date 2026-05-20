@@ -1,6 +1,9 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import cinestreamImg from '../assets/cinestream.png';
+import deepshieldImg from '../assets/deepshield.png';
+import amazonImg from '../assets/amazon.png';
 
 const projects = [
   {
@@ -12,6 +15,7 @@ const projects = [
     repo: 'https://github.com/HarshKasaudhan29/React-movie-app',
     color: '#c8f542',
     featured: true,
+    image: cinestreamImg,
   },
   {
     number: '02',
@@ -22,6 +26,7 @@ const projects = [
     repo: 'https://github.com/HarshKasaudhan29/synthetic-media-detector-project',
     color: '#42d4f4',
     featured: true,
+    image: deepshieldImg,
   },
   {
     number: '03',
@@ -32,6 +37,7 @@ const projects = [
     repo: 'https://github.com/HarshKasaudhan29/amazon-clone-html-css',
     color: '#f5a142',
     featured: false,
+    image: amazonImg,
   },
 ];
 
@@ -47,7 +53,6 @@ function ProjectCard({ project, index }) {
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'relative',
-        padding: '40px',
         background: 'var(--surface)',
         border: '1px solid var(--border)',
         borderRadius: 20,
@@ -64,75 +69,148 @@ function ProjectCard({ project, index }) {
         e.currentTarget.style.transform = 'translateY(0)';
       }}
     >
-      {/* Glow */}
+      {/* Project Image */}
       <div style={{
-        position: 'absolute',
-        top: 0, left: 0, right: 0,
-        height: 1,
-        background: `linear-gradient(90deg, transparent, ${project.color}60, transparent)`,
-      }} />
-
-      {/* Number */}
-      <div style={{
-        fontFamily: 'var(--font-display)',
-        fontSize: 64,
-        color: project.color + '18',
-        lineHeight: 1,
-        marginBottom: 20,
-        userSelect: 'none',
+        width: '100%',
+        height: 200,
+        overflow: 'hidden',
+        position: 'relative',
       }}>
-        {project.number}
-      </div>
+        <img
+          src={project.image}
+          alt={project.title}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'top',
+            transition: 'transform 0.4s ease',
+          }}
+          onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+          onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+        />
+        {/* Overlay gradient */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
+          height: '50%',
+          background: 'linear-gradient(transparent, var(--surface))',
+        }} />
 
-      {/* Title */}
-      <h3 style={{
-        fontFamily: 'var(--font-display)',
-        fontSize: 'clamp(20px, 3vw, 26px)',
-        marginBottom: 16,
-        color: 'var(--text-primary)',
-        lineHeight: 1.2,
-      }}>
-        {project.title}
-      </h3>
-
-      {/* Description */}
-      <p style={{
-        fontSize: 15,
-        color: 'var(--text-secondary)',
-        lineHeight: 1.7,
-        marginBottom: 28,
-      }}>
-        {project.description}
-      </p>
-
-      {/* Tech stack */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 8,
-        marginBottom: 32,
-      }}>
-        {project.tech.map((t) => (
-          <span key={t} style={{
+        {/* Featured badge */}
+        {project.featured && (
+          <div style={{
+            position: 'absolute',
+            top: 16,
+            right: 16,
             padding: '4px 12px',
-            background: project.color + '14',
-            border: `1px solid ${project.color}30`,
+            background: 'rgba(10,10,10,0.8)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(200,245,66,0.25)',
             borderRadius: 100,
-            fontSize: 12,
-            color: project.color,
-            fontWeight: 500,
-            letterSpacing: '0.02em',
+            fontSize: 11,
+            color: 'var(--accent)',
+            fontWeight: 600,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
           }}>
-            {t}
-          </span>
-        ))}
+            Featured
+          </div>
+        )}
       </div>
 
-      {/* Links */}
-      <div style={{ display: 'flex', gap: 12 }}>
-        {project.live && (
+      {/* Content */}
+      <div style={{ padding: '24px 32px 32px' }}>
+        {/* Glow line */}
+        <div style={{
+          height: 1,
+          background: `linear-gradient(90deg, ${project.color}60, transparent)`,
+          marginBottom: 20,
+        }} />
+
+        {/* Number */}
+        <div style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 48,
+          color: project.color + '18',
+          lineHeight: 1,
+          marginBottom: 12,
+          userSelect: 'none',
+        }}>
+          {project.number}
+        </div>
+
+        {/* Title */}
+        <h3 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(20px, 3vw, 24px)',
+          marginBottom: 12,
+          color: 'var(--text-primary)',
+          lineHeight: 1.2,
+        }}>
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p style={{
+          fontSize: 14,
+          color: 'var(--text-secondary)',
+          lineHeight: 1.7,
+          marginBottom: 24,
+        }}>
+          {project.description}
+        </p>
+
+        {/* Tech stack */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 8,
+          marginBottom: 28,
+        }}>
+          {project.tech.map((t) => (
+            <span key={t} style={{
+              padding: '4px 12px',
+              background: project.color + '14',
+              border: `1px solid ${project.color}30`,
+              borderRadius: 100,
+              fontSize: 12,
+              color: project.color,
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+            }}>
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Links */}
+        <div style={{ display: 'flex', gap: 12 }}>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '10px 20px',
+                background: project.color,
+                color: '#0a0a0a',
+                borderRadius: 100,
+                fontSize: 13,
+                fontWeight: 600,
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <ExternalLink size={14} /> Live Demo
+            </a>
+          )}
           <a
-            href={project.live}
+            href={project.repo}
             target="_blank"
             rel="noreferrer"
             style={{
@@ -140,68 +218,27 @@ function ProjectCard({ project, index }) {
               alignItems: 'center',
               gap: 6,
               padding: '10px 20px',
-              background: project.color,
-              color: '#0a0a0a',
+              background: 'transparent',
+              color: 'var(--text-secondary)',
+              border: '1px solid var(--border)',
               borderRadius: 100,
               fontSize: 13,
-              fontWeight: 600,
-              transition: 'transform 0.2s ease',
+              fontWeight: 500,
+              transition: 'color 0.2s ease, border-color 0.2s ease',
             }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = 'var(--text-secondary)';
+              e.currentTarget.style.borderColor = 'var(--border)';
+            }}
           >
-            <ExternalLink size={14} /> Live Demo
+            <Github size={14} /> Code
           </a>
-        )}
-        <a
-          href={project.repo}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            padding: '10px 20px',
-            background: 'transparent',
-            color: 'var(--text-secondary)',
-            border: '1px solid var(--border)',
-            borderRadius: 100,
-            fontSize: 13,
-            fontWeight: 500,
-            transition: 'color 0.2s ease, border-color 0.2s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.color = 'var(--text-primary)';
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.color = 'var(--text-secondary)';
-            e.currentTarget.style.borderColor = 'var(--border)';
-          }}
-        >
-          <Github size={14} /> Code
-        </a>
-      </div>
-
-      {/* Featured badge */}
-      {project.featured && (
-        <div style={{
-          position: 'absolute',
-          top: 24,
-          right: 24,
-          padding: '4px 12px',
-          background: 'var(--accent-dim)',
-          border: '1px solid rgba(200,245,66,0.25)',
-          borderRadius: 100,
-          fontSize: 11,
-          color: 'var(--accent)',
-          fontWeight: 600,
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-        }}>
-          Featured
         </div>
-      )}
+      </div>
     </motion.div>
   );
 }

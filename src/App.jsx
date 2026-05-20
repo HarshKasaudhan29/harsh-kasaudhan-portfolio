@@ -6,6 +6,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
+import Education from './pages/Education';
 import './styles/index.css';
 import './styles/theme.css';
 
@@ -162,6 +163,10 @@ export default function App() {
           <div style={{ borderTop: '1px solid var(--border)' }} />
         </div>
         <Skills />
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 6vw, 80px)' }}>
+          <div style={{ borderTop: '1px solid var(--border)' }} />
+        </div>
+        <Education />
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 6vw, 80px)' }}>
           <div style={{ borderTop: '1px solid var(--border)' }} />
         </div>
