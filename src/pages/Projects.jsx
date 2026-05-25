@@ -49,7 +49,7 @@ const projects = [
     repo: 'https://github.com/HarshKasaudhan29/Jira-Clone-MERN',
     color: '#0052CC',
     featured: true,
-    image: 'https://i.ibb.co/C5Vp44Xw/jiraCloneImg.png',
+    image: '/jiraCloneImg.png',
   }
 ];
 
