@@ -50,7 +50,7 @@ const projects = [
     color: '#0052CC',
     featured: true,
     // Niche wali line ko exact aise hi string me badal do:
-    image: 'https://raw.githubusercontent.com/HarshKasaudhan29/Jira-Clone-MERN/main/Frontend/src/assets/jiraCloneImg.png', 
+    image: 'https://raw.githubusercontent.com/HarshKasaudhan29/Jira-Clone-MERN/main/frontend/src/assets/jiraCloneImg.png', 
 }
 ];
 
