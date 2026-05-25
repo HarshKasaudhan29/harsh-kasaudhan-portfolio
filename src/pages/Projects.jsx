@@ -39,6 +39,17 @@ const projects = [
     featured: false,
     image: amazonImg,
   },
+  {
+    number: '01',
+    title: 'Jira Clone',
+    description: 'A robust project management and issue tracking application that features an interactive Kanban board, drag-and-drop functionality, and real-time sprint management to streamline team workflows.',
+    tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
+    live: 'https://jira-clone-frontend-5bg1.onrender.com', 
+    repo: 'https://github.com/HarshKasaudhan29/jira-clone',
+    color: '#0052CC',
+    featured: true,
+    image: jiraCloneImg, 
+}
 ];
 
 function ProjectCard({ project, index }) {
