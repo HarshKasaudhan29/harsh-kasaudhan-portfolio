@@ -4,6 +4,7 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import cinestreamImg from '../assets/cinestream.png';
 import deepshieldImg from '../assets/deepshield.png';
 import amazonImg from '../assets/amazon.png';
+import jiraCloneImg from '../assets/jiraCloneImg.png';
 
 const projects = [
   {
