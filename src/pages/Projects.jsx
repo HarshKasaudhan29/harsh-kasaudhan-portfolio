@@ -5,6 +5,7 @@ import cinestreamImg from '../assets/cinestream.png';
 import deepshieldImg from '../assets/deepshield.png';
 import amazonImg from '../assets/amazon.png';
 import jiraCloneImg from '../assets/jiraCloneImg.png';
+import shoppingBhandarImg from '../assets/shoppingbhandar.png';
 
 const projects = [
   {
@@ -50,7 +51,18 @@ const projects = [
     color: '#0052CC',
     featured: true,
     image: jiraCloneImg,
-  }
+  },
+  {
+  number: '05',
+  title: 'Shopping Bhandar',
+  description: 'A full-featured MERN stack e-commerce application equipped with user authentication, secure payment gateway integration, dynamic product filtering, and an intuitive shopping cart experience.',
+  tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Redux Toolkit'],
+  live: 'https://shopping-bhandar.vercel.app/',
+  repo: 'https://github.com/HarshKasaudhan29/ShoppingBhandar', 
+  color: '#ff4e50', 
+  featured: true,
+  image: shoppingBhandarImg, 
+}
 ];
 
 function ProjectCard({ project, index }) {
